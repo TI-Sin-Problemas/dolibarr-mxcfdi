@@ -229,7 +229,19 @@ class modMxSatCatalogs extends DolibarrModules
 		 );
 		 */
 		/* BEGIN MODULEBUILDER DICTIONARIES */
-		$this->dictionaries = array();
+		$this->dictionaries = array(
+			'langs' => 'mxsatcatalogs@mxsatcatalogs',
+			'tabname' => array('c_mxsatcatalogs_payments', 'c_mxsatcatalogs_products_services', 'c_mxsatcatalogs_units_of_measure'),
+			'tablib' => array('MxSatCatalogs_payments', 'MxSatCatalogs_products_services', 'MxSatCatalogs_units_of_measure'),
+			'tabsql' => array('SELECT f.rowid as rowid, f.code, f.label, f.active FROM llx_c_mxsatcatalogs_payments as f', 'SELECT f.rowid as rowid, f.code, f.label, f.active FROM llx_c_mxsatcatalogs_products_services as f', 'SELECT f.rowid as rowid, f.code, f.label, f.description, f.symbol, f.active FROM llx_c_mxsatcatalogs_units_of_measure as f'),
+			'tabsqlsort' => array('label ASC', 'label ASC', 'label ASC'),
+			'tabfield' => array('code,label', 'code,label', 'code,label'),
+			'tabfieldvalue' => array('code,label', 'code,label', 'code,label'),
+			'tabfieldinsert' => array('code,label', 'code,label', 'code,label'),
+			'tabrowid' => array('rowid', 'rowid', 'rowid'),
+			'tabcond' => array(isModEnabled('mxsatcatalogs'), isModEnabled('mxsatcatalogs'), isModEnabled('mxsatcatalogs')),
+			'tabhelp' => array(array('code' => $langs->trans('CodeTooltipHelp'), 'field2' => 'field2tooltip'), array('code' => $langs->trans('CodeTooltipHelp'), 'field2' => 'field2tooltip'), array('code' => $langs->trans('CodeTooltipHelp'), 'field2' => 'field2tooltip')),
+		);
 		/* END MODULEBUILDER DICTIONARIES */
 
 		// Boxes/Widgets
