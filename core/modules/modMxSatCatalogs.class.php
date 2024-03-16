@@ -231,16 +231,66 @@ class modMxSatCatalogs extends DolibarrModules
 		/* BEGIN MODULEBUILDER DICTIONARIES */
 		$this->dictionaries = array(
 			'langs' => 'mxsatcatalogs@mxsatcatalogs',
-			'tabname' => array('c_mxsatcatalogs_payments', 'c_mxsatcatalogs_products_services', 'c_mxsatcatalogs_units_of_measure'),
-			'tablib' => array('MxSatCatalogs_payments', 'MxSatCatalogs_products_services', 'MxSatCatalogs_units_of_measure'),
-			'tabsql' => array('SELECT f.rowid as rowid, f.code, f.label, f.active FROM llx_c_mxsatcatalogs_payments as f', 'SELECT f.rowid as rowid, f.code, f.label, f.active FROM llx_c_mxsatcatalogs_products_services as f', 'SELECT f.rowid as rowid, f.code, f.label, f.description, f.symbol, f.active FROM llx_c_mxsatcatalogs_units_of_measure as f'),
-			'tabsqlsort' => array('label ASC', 'label ASC', 'label ASC'),
-			'tabfield' => array('code,label', 'code,label', 'code,label'),
-			'tabfieldvalue' => array('code,label', 'code,label', 'code,label'),
-			'tabfieldinsert' => array('code,label', 'code,label', 'code,label'),
-			'tabrowid' => array('rowid', 'rowid', 'rowid'),
-			'tabcond' => array(isModEnabled('mxsatcatalogs'), isModEnabled('mxsatcatalogs'), isModEnabled('mxsatcatalogs')),
-			'tabhelp' => array(array('code' => $langs->trans('CodeTooltipHelp'), 'field2' => 'field2tooltip'), array('code' => $langs->trans('CodeTooltipHelp'), 'field2' => 'field2tooltip'), array('code' => $langs->trans('CodeTooltipHelp'), 'field2' => 'field2tooltip')),
+			'tabname' => array(
+				'c_mxsatcatalogs_payment_methods',
+				'c_mxsatcatalogs_payment_options',
+				'c_mxsatcatalogs_products_services',
+				'c_mxsatcatalogs_units_of_measure'
+			),
+			'tablib' => array(
+				'MxSatCatalogsPaymentMethods',
+				'MxSatCatalogsPaymentOptions',
+				'MxSatCatalogsProductsServices',
+				'MxSatCatalogsUnitsOfMeasure'
+			),
+			'tabsql' => array(
+				'SELECT t.rowid as rowid, t.code, t.label, t.active FROM llx_c_mxsatcatalogs_payment_methods as t',
+				'SELECT t.rowid as rowid, t.code, t.label, t.active FROM llx_c_mxsatcatalogs_payment_options as t',
+				'SELECT t.rowid as rowid, t.code, t.label, t.active FROM llx_c_mxsatcatalogs_products_services as t',
+				'SELECT t.rowid as rowid, t.code, t.label, t.description, t.symbol, t.active FROM llx_c_mxsatcatalogs_units_of_measure as t'
+			),
+			'tabsqlsort' => array(
+				'label ASC',
+				'label ASC',
+				'code ASC',
+				'label ASC'
+			),
+			'tabfield' => array(
+				'code,label',
+				'code,label',
+				'code,label',
+				'code,label,description,symbol'
+			),
+			'tabfieldvalue' => array(
+				'code,label',
+				'code,label',
+				'code,label',
+				'code,label,description,symbol'
+			),
+			'tabfieldinsert' => array(
+				'code,label',
+				'code,label',
+				'code,label',
+				'code,label,description,symbol'
+			),
+			'tabrowid' => array(
+				'rowid',
+				'rowid',
+				'rowid',
+				'rowid'
+			),
+			'tabcond' => array(
+				isModEnabled('mxsatcatalogs'),
+				isModEnabled('mxsatcatalogs'),
+				isModEnabled('mxsatcatalogs'),
+				isModEnabled('mxsatcatalogs')
+			),
+			'tabhelp' => array(
+				array('code' => $langs->trans('MxSatCatalogsPaymentMethodsCodeTooltipHelp')),
+				array('code' => $langs->trans('MxSatCatalogsPaymentOptionsCodeTooltipHelp')),
+				array('code' => $langs->trans('MxSatCatalogsProductsServicesCodeTooltipHelp')),
+				array('code' => $langs->trans('MxSatCatalogsUnitsOfMeasureCodeTooltipHelp'))
+			),
 		);
 		/* END MODULEBUILDER DICTIONARIES */
 
@@ -469,7 +519,7 @@ class modMxSatCatalogs extends DolibarrModules
 		//$result5=$extrafields->addExtraField('mxsatcatalogs_myattr5', "New Attr 5 label", 'text',    1, 10, 'user',         0, 0, '', '', 1, '', 0, 0, '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")');
 
 		// Permissions
-		$this->remove($options);
+		// $this->remove($options);
 
 		$sql = array();
 
@@ -520,7 +570,12 @@ class modMxSatCatalogs extends DolibarrModules
 	 */
 	public function remove($options = '')
 	{
-		$sql = array();
+		$sql = array(
+			'DROP TABLE ' . MAIN_DB_PREFIX . 'c_mxsatcatalogs_payment_methods',
+			'DROP TABLE ' . MAIN_DB_PREFIX . 'c_mxsatcatalogs_payment_options',
+			'DROP TABLE ' . MAIN_DB_PREFIX . 'c_mxsatcatalogs_products_services',
+			'DROP TABLE ' . MAIN_DB_PREFIX . 'c_mxsatcatalogs_units_of_measure'
+		);
 		return $this->_remove($sql, $options);
 	}
 }

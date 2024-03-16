@@ -1,1 +1,0 @@
-ALTER TABLE llx_c_mxsatcatalogs_payments ADD INDEX idx_mxsatcatalogs_payments_code(code);

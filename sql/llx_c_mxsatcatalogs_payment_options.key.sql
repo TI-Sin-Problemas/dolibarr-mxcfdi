@@ -1,0 +1,2 @@
+ALTER TABLE llx_c_mxsatcatalogs_payment_options
+ADD INDEX idx_c_mxsatcatalogs_payment_options_code(code)
