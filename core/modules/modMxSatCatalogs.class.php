@@ -374,7 +374,7 @@ class modMxSatCatalogs extends DolibarrModules
 			'url' => '/mxsatcatalogs/mxsatcatalogsindex.php',
 			'langs' => 'mxsatcatalogs@mxsatcatalogs', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 			'position' => 1000 + $r,
-			'enabled' => 'isModEnabled("mxsatcatalogs")', // Define condition to show or hide menu entry. Use 'isModEnabled("mxsatcatalogs")' if entry must be visible if module is enabled.
+			'enabled' => 'false', // Define condition to show or hide menu entry. Use 'isModEnabled("mxsatcatalogs")' if entry must be visible if module is enabled.
 			'perms' => '1', // Use 'perms'=>'$user->hasRight("mxsatcatalogs", "myobject", "read")' if you want your menu with a permission rules
 			'target' => '',
 			'user' => 2, // 0=Menu for internal users, 1=external users, 2=both
