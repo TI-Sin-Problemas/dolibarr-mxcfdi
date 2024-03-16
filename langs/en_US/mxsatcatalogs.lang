@@ -18,9 +18,9 @@
 #
 
 # Module label 'ModuleMxSatCatalogsName'
-ModuleMxSatCatalogsName = MxSatCatalogs
+ModuleMxSatCatalogsName = Mexican SAT Catalogs
 # Module description 'ModuleMxSatCatalogsDesc'
-ModuleMxSatCatalogsDesc = MxSatCatalogs description
+ModuleMxSatCatalogsDesc = Module to add Mexican SAT Catalogs as dictionaries
 
 #
 # Admin page
@@ -52,3 +52,16 @@ MyPageName = My page name
 #
 MyWidget = My widget
 MyWidgetDescription = My widget description
+
+#
+# Dictionaries
+#
+MxSatCatalogsPaymentMethods = Mexican SAT Catalog of Payment Methods
+MxSatCatalogsPaymentMethodsCodeTooltipHelp = SAT Catalog code
+MxSatCatalogsPaymentOptions = Mexican SAT Catalog of Payment Options
+MxSatCatalogsPaymentOptionsCodeTooltipHelp = SAT Catalog code
+MxSatCatalogsProductsServices = Mexican SAT Catalog of Products and Services
+MxSatCatalogsProductsServicesCodeTooltipHelp = SAT Catalog code
+MxSatCatalogsUnitsOfMeasure = Mexican SAT Catalog of Units of Measure
+MxSatCatalogsUnitsOfMeasureCodeTooltipHelp = SAT Catalog code
+Symbol = Symbol
