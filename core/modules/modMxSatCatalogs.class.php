@@ -72,7 +72,7 @@ class modMxSatCatalogs extends DolibarrModules
 		$this->editor_url = 'https://tisinproblemas.com';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated', 'experimental_deprecated' or a version string like 'x.y.z'
-		$this->version = '1.0';
+		$this->version = '0.0.1';
 		// Url to the file with your last numberversion of this module
 		//$this->url_last_version = 'http://www.example.com/versionmodule.txt';
 
@@ -83,7 +83,7 @@ class modMxSatCatalogs extends DolibarrModules
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
 		// If file is in module/img directory under name object_pictovalue.png, use this->picto='pictovalue@module'
 		// To use a supported fa-xxx css style of font awesome, use this->picto='xxx'
-		$this->picto = 'fa-database';
+		$this->picto = 'fa-book-open';
 
 		// Define some features supported by module (triggers, login, substitutions, menus, css, etc...)
 		$this->module_parts = array(
@@ -130,7 +130,9 @@ class modMxSatCatalogs extends DolibarrModules
 		$this->dirs = array("/mxsatcatalogs/temp");
 
 		// Config pages. Put here list of php page, stored into mxsatcatalogs/admin directory, to use to setup module.
-		$this->config_page_url = array("setup.php@mxsatcatalogs");
+		$this->config_page_url = array(
+			// "setup.php@mxsatcatalogs"
+		);
 
 		// Dependencies
 		// A condition to hide module
