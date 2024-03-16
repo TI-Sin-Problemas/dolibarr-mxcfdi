@@ -20,3 +20,5 @@
 *.back
 /.editorconfig
 /.gitattributes
+# SQLite DB
+*.db
