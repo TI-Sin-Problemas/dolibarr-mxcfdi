@@ -80,7 +80,7 @@ function update_table(String $table, DoliDB $db, String $sqliteDbPath)
             break;
 
         case 'c_mxsatcatalogs_units_of_measure':
-
+            update_units_of_measure($db, $sqliteDbPath);
             break;
     }
 }
@@ -182,6 +182,41 @@ function update_products_services(DoliDB $db, String $sqliteDbPath)
                 $sql = "UPDATE " . MAIN_DB_PREFIX . "{$tableName} SET label = '{$label}' WHERE code = '{$code}'";
             } else {
                 $sql = "INSERT INTO " . MAIN_DB_PREFIX . "{$tableName} (code, label, active) VALUES ('{$code}', '{$label}', 0)";
+            }
+            if (!$db->query($sql)) {
+                dol_print_error($db);
+            }
+        } else {
+            dol_print_error($db);
+        }
+    }
+}
+
+function update_units_of_measure(DoliDB $db, String $sqliteDbPath)
+{
+    $query = get_query($sqliteDbPath, 'cfdi_40_claves_unidades');
+    while ($row = $query->fetchArray(SQLITE3_ASSOC)) {
+        $code = $row['id'];
+        $label = $db->escape($row['texto']);
+        $description = $db->escape($row['descripcion']);
+        $symbol = $db->escape($row['simbolo']);
+
+        $tableName = "c_mxsatcatalogs_units_of_measure";
+        $sql = "SELECT label, description, symbol FROM " . MAIN_DB_PREFIX . "{$tableName} WHERE code = '{$code}'";
+        $response =  $db->query($sql);
+        if ($response) {
+            $selectResponse = $db->fetch_array($response);
+            if ($selectResponse) {
+                if (
+                    $selectResponse['label'] == $label &&
+                    $selectResponse['description'] == $description &&
+                    $selectResponse['symbol'] == $symbol
+                ) {
+                    continue;
+                }
+                $sql = "UPDATE " . MAIN_DB_PREFIX . "{$tableName} SET label = '{$label}', description = '{$description}', symbol = '{$symbol}' WHERE code = '{$code}'";
+            } else {
+                $sql = "INSERT INTO " . MAIN_DB_PREFIX . "{$tableName} (code, label, description, symbol, active) VALUES ('{$code}', '{$label}', '{$description}', '{$symbol}', 0)";
             }
             if (!$db->query($sql)) {
                 dol_print_error($db);
