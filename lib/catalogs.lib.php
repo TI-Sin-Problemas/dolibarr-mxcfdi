@@ -76,6 +76,7 @@ function update_table(String $table, DoliDB $db, String $sqliteDbPath)
             break;
 
         case 'c_mxsatcatalogs_products_services':
+            update_products_services($db, $sqliteDbPath);
             break;
 
         case 'c_mxsatcatalogs_units_of_measure':
@@ -91,7 +92,6 @@ function update_table(String $table, DoliDB $db, String $sqliteDbPath)
  *
  * @param DoliDB $db The DoliDB object for the Dolibarr database
  * @param String $sqliteDbPath The path to the SQLite database
- * @throws Exception When an error occurs during the database operations
  */
 function update_payment_methods(DoliDB $db, String $sqliteDbPath)
 {
@@ -136,6 +136,41 @@ function update_payment_options(DoliDB $db, String $sqliteDbPath)
         $label = $db->escape($row['texto']);
 
         $tableName = "c_mxsatcatalogs_payment_options";
+        $sql = "SELECT label FROM " . MAIN_DB_PREFIX . "{$tableName} WHERE code = '{$code}'";
+        $response =  $db->query($sql);
+        if ($response) {
+            $selectResponse = $db->fetch_array($response);
+            if ($selectResponse) {
+                if ($selectResponse['label'] == $label) {
+                    continue;
+                }
+                $sql = "UPDATE " . MAIN_DB_PREFIX . "{$tableName} SET label = '{$label}' WHERE code = '{$code}'";
+            } else {
+                $sql = "INSERT INTO " . MAIN_DB_PREFIX . "{$tableName} (code, label, active) VALUES ('{$code}', '{$label}', 0)";
+            }
+            if (!$db->query($sql)) {
+                dol_print_error($db);
+            }
+        } else {
+            dol_print_error($db);
+        }
+    }
+}
+
+/**
+ * Updates products and services in the database based on the data from a SQLite database.
+ *
+ * @param DoliDB $db The DoliDB object for connecting to the main database.
+ * @param String $sqliteDbPath The path to the SQLite database containing the data to update.
+ */
+function update_products_services(DoliDB $db, String $sqliteDbPath)
+{
+    $query = get_query($sqliteDbPath, 'cfdi_40_productos_servicios');
+    while ($row = $query->fetchArray(SQLITE3_ASSOC)) {
+        $code = $row['id'];
+        $label = $db->escape($row['texto']);
+
+        $tableName = "c_mxsatcatalogs_products_services";
         $sql = "SELECT label FROM " . MAIN_DB_PREFIX . "{$tableName} WHERE code = '{$code}'";
         $response =  $db->query($sql);
         if ($response) {
