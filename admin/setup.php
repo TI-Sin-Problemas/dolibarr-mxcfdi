@@ -81,7 +81,7 @@ $value = GETPOST('value', 'alpha');
 $label = GETPOST('label', 'alpha');
 $scandir = GETPOST('scan_dir', 'alpha');
 $type = 'myobject';
-
+$table = GETPOST('table', 'aZ09');
 
 $error = 0;
 $setupnotempty = 0;
@@ -176,10 +176,22 @@ $dirmodels = array_merge(array('/'), (array) $conf->modules_parts['models']);
 if (versioncompare(explode('.', DOL_VERSION), array(15)) < 0 && $action == 'update' && !empty($user->admin)) {
 	$formSetup->saveConfFromPost();
 }
+dol_include_once('/mxsatcatalogs/core/modules/modMxSatCatalogs.class.php');
+$module = new modMxSatCatalogs($db);
 
 include DOL_DOCUMENT_ROOT . '/core/actions_setmoduleoptions.inc.php';
 
-if ($action == 'updateMask') {
+if ($action == 'updateTable') {
+	dol_include_once('/mxsatcatalogs/lib/catalogs.lib.php');
+	$currentDate = date('Ymd');
+	$lastDownloadDate = dolibarr_get_const($db, 'MXSATCATALOGS_DB_DATE', $conf->entity);
+	$sqliteDbPath = $dolibarr_main_data_root . '/mxsatcatalogs/catalogs.db';
+	if ($currentDate != $lastDownloadDate || !file_exists($sqliteDbPath)) {
+		download_catalog_db($sqliteDbPath);
+		dolibarr_set_const($db, 'MXSATCATALOGS_DB_DATE', $currentDate, 'chaine', 0, '', $conf->entity);
+	}
+	update_table($module->dictionaries['tabname'][$table], $db, $sqliteDbPath);
+} elseif ($action == 'updateMask') {
 	$maskconst = GETPOST('maskconst', 'aZ09');
 	$maskvalue = GETPOST('maskvalue', 'alpha');
 
@@ -285,6 +297,7 @@ if ($action == 'updateMask') {
  */
 
 $form = new Form($db);
+$token = newToken();
 
 $help_url = '';
 $page_name = "MxSatCatalogsSetup";
@@ -303,6 +316,16 @@ print dol_get_fiche_head($head, 'settings', $langs->trans($page_name), -1, "mxsa
 // Setup page goes here
 echo '<span class="opacitymedium">' . $langs->trans("MxSatCatalogsSetupPage") . '</span><br><br>';
 
+echo '<table class="noborder centpercent"><thead>';
+echo '<tr class="liste_titre"><td>' . $langs->trans("Dictionary") . '</td><td>' . $langs->trans("Action") . '</td></tr>';
+echo '</thead><tbody>';
+foreach ($module->dictionaries['tabname'] as $key => $value) {
+	echo '<tr class="oddeven"><td class="col-setup-title">' . $langs->trans($module->dictionaries['tablib'][$key]) . '</td>';
+	echo '<td class="col-setup-action">';
+	echo '<a class="butAction" href="' . $_SERVER["PHP_SELF"] . '?action=updateTable&token=' . $token . '&table=' . $key . '">' . $langs->trans("Update") . '</a>';
+	echo '</td></tr>';
+};
+echo '</tbody></table>';
 
 if ($action == 'edit') {
 	print $formSetup->generateOutput(true);

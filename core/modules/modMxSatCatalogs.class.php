@@ -130,9 +130,7 @@ class modMxSatCatalogs extends DolibarrModules
 		$this->dirs = array("/mxsatcatalogs/temp");
 
 		// Config pages. Put here list of php page, stored into mxsatcatalogs/admin directory, to use to setup module.
-		$this->config_page_url = array(
-			// "setup.php@mxsatcatalogs"
-		);
+		$this->config_page_url = array("setup.php@mxsatcatalogs");
 
 		// Dependencies
 		// A condition to hide module
@@ -205,88 +203,73 @@ class modMxSatCatalogs extends DolibarrModules
 		// 'user'             to add a tab in user view
 
 		// Dictionaries
-		/* Example:
-		 $this->dictionaries=array(
-		 'langs'=>'mxsatcatalogs@mxsatcatalogs',
-		 // List of tables we want to see into dictonnary editor
-		 'tabname'=>array("table1", "table2", "table3"),
-		 // Label of tables
-		 'tablib'=>array("Table1", "Table2", "Table3"),
-		 // Request to select fields
-		 'tabsql'=>array('SELECT f.rowid as rowid, f.code, f.label, f.active FROM '.MAIN_DB_PREFIX.'table1 as f', 'SELECT f.rowid as rowid, f.code, f.label, f.active FROM '.MAIN_DB_PREFIX.'table2 as f', 'SELECT f.rowid as rowid, f.code, f.label, f.active FROM '.MAIN_DB_PREFIX.'table3 as f'),
-		 // Sort order
-		 'tabsqlsort'=>array("label ASC", "label ASC", "label ASC"),
-		 // List of fields (result of select to show dictionary)
-		 'tabfield'=>array("code,label", "code,label", "code,label"),
-		 // List of fields (list of fields to edit a record)
-		 'tabfieldvalue'=>array("code,label", "code,label", "code,label"),
-		 // List of fields (list of fields for insert)
-		 'tabfieldinsert'=>array("code,label", "code,label", "code,label"),
-		 // Name of columns with primary key (try to always name it 'rowid')
-		 'tabrowid'=>array("rowid", "rowid", "rowid"),
-		 // Condition to show each dictionary
-		 'tabcond'=>array(isModEnabled('mxsatcatalogs'), isModEnabled('mxsatcatalogs'), isModEnabled('mxsatcatalogs')),
-		 // Tooltip for every fields of dictionaries: DO NOT PUT AN EMPTY ARRAY
-		 'tabhelp'=>array(array('code'=>$langs->trans('CodeTooltipHelp'), 'field2' => 'field2tooltip'), array('code'=>$langs->trans('CodeTooltipHelp'), 'field2' => 'field2tooltip'), ...),
-		 );
-		 */
 		/* BEGIN MODULEBUILDER DICTIONARIES */
 		$this->dictionaries = array(
 			'langs' => 'mxsatcatalogs@mxsatcatalogs',
+			// List of tables we want to see into dictonnary editor
 			'tabname' => array(
 				'c_mxsatcatalogs_payment_methods',
 				'c_mxsatcatalogs_payment_options',
 				'c_mxsatcatalogs_products_services',
 				'c_mxsatcatalogs_units_of_measure'
 			),
+			// Label of tables
 			'tablib' => array(
 				'MxSatCatalogsPaymentMethods',
 				'MxSatCatalogsPaymentOptions',
 				'MxSatCatalogsProductsServices',
 				'MxSatCatalogsUnitsOfMeasure'
 			),
+			// Request to select fields
 			'tabsql' => array(
 				'SELECT t.rowid as rowid, t.code, t.label, t.active FROM llx_c_mxsatcatalogs_payment_methods as t',
 				'SELECT t.rowid as rowid, t.code, t.label, t.active FROM llx_c_mxsatcatalogs_payment_options as t',
 				'SELECT t.rowid as rowid, t.code, t.label, t.active FROM llx_c_mxsatcatalogs_products_services as t',
 				'SELECT t.rowid as rowid, t.code, t.label, t.description, t.symbol, t.active FROM llx_c_mxsatcatalogs_units_of_measure as t'
 			),
+			// Sort order
 			'tabsqlsort' => array(
 				'label ASC',
 				'label ASC',
 				'code ASC',
 				'label ASC'
 			),
+			// List of fields (result of select to show dictionary)
 			'tabfield' => array(
 				'code,label',
 				'code,label',
 				'code,label',
 				'code,label,description,symbol'
 			),
+			// List of fields (list of fields to edit a record)
 			'tabfieldvalue' => array(
 				'code,label',
 				'code,label',
 				'code,label',
 				'code,label,description,symbol'
 			),
+			// List of fields (list of fields for insert)
 			'tabfieldinsert' => array(
 				'code,label',
 				'code,label',
 				'code,label',
 				'code,label,description,symbol'
 			),
+			// Name of columns with primary key (try to always name it 'rowid')
 			'tabrowid' => array(
 				'rowid',
 				'rowid',
 				'rowid',
 				'rowid'
 			),
+			// Condition to show each dictionary
 			'tabcond' => array(
 				isModEnabled('mxsatcatalogs'),
 				isModEnabled('mxsatcatalogs'),
 				isModEnabled('mxsatcatalogs'),
 				isModEnabled('mxsatcatalogs')
 			),
+			// Tooltip for every fields of dictionaries: DO NOT PUT AN EMPTY ARRAY
 			'tabhelp' => array(
 				array('code' => $langs->trans('MxSatCatalogsPaymentMethodsCodeTooltipHelp')),
 				array('code' => $langs->trans('MxSatCatalogsPaymentOptionsCodeTooltipHelp')),
