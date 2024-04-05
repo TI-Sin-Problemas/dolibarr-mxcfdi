@@ -71,11 +71,20 @@ function update_table(String $table, DoliDB $db, String $sqliteDbPath)
             update_payment_methods($db, $sqliteDbPath);
             break;
 
-        default:
-            # code...
+        case 'c_mxsatcatalogs_payment_options':
+            update_payment_options($db, $sqliteDbPath);
+            break;
+
+        case 'c_mxsatcatalogs_products_services':
+            break;
+
+        case 'c_mxsatcatalogs_units_of_measure':
+
             break;
     }
 }
+
+
 
 /**
  * Updates the payment methods in the database based on the information retrieved from the SQLite database.
@@ -92,6 +101,41 @@ function update_payment_methods(DoliDB $db, String $sqliteDbPath)
         $label = $db->escape($row['texto']);
 
         $tableName = "c_mxsatcatalogs_payment_methods";
+        $sql = "SELECT label FROM " . MAIN_DB_PREFIX . "{$tableName} WHERE code = '{$code}'";
+        $response =  $db->query($sql);
+        if ($response) {
+            $selectResponse = $db->fetch_array($response);
+            if ($selectResponse) {
+                if ($selectResponse['label'] == $label) {
+                    continue;
+                }
+                $sql = "UPDATE " . MAIN_DB_PREFIX . "{$tableName} SET label = '{$label}' WHERE code = '{$code}'";
+            } else {
+                $sql = "INSERT INTO " . MAIN_DB_PREFIX . "{$tableName} (code, label, active) VALUES ('{$code}', '{$label}', 0)";
+            }
+            if (!$db->query($sql)) {
+                dol_print_error($db);
+            }
+        } else {
+            dol_print_error($db);
+        }
+    }
+}
+
+/**
+ * Updates payment options based on data from a SQLite database.
+ *
+ * @param DoliDB $db The instance of the DoliDB class.
+ * @param String $sqliteDbPath The path to the SQLite database.
+ */
+function update_payment_options(DoliDB $db, String $sqliteDbPath)
+{
+    $query = get_query($sqliteDbPath, 'cfdi_40_metodos_pago');
+    while ($row = $query->fetchArray(SQLITE3_ASSOC)) {
+        $code = $row['id'];
+        $label = $db->escape($row['texto']);
+
+        $tableName = "c_mxsatcatalogs_payment_options";
         $sql = "SELECT label FROM " . MAIN_DB_PREFIX . "{$tableName} WHERE code = '{$code}'";
         $response =  $db->query($sql);
         if ($response) {
