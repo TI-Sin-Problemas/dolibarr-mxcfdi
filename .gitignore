@@ -22,3 +22,6 @@
 /.gitattributes
 # SQLite DB
 *.db
+
+# module builder
+modulebuilder.txt
