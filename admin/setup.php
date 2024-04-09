@@ -93,6 +93,11 @@ if (!class_exists('FormSetup')) {
 }
 $formSetup = new FormSetup($db);
 
+$help_url = '';
+$page_name = "MxSatCatalogsSetup";
+
+llxHeader('', $langs->trans($page_name), $help_url, '', 0, 0, '', '', '', 'mod-mxsatcatalogs page-admin');
+
 /*
  * Actions
  */
@@ -112,6 +117,8 @@ if ($action == 'updateTable') {
 		dolibarr_set_const($db, 'MXSATCATALOGS_DB_DATE', $currentDate, 'chaine', 0, '', $conf->entity);
 	}
 	update_table($module->dictionaries['tabname'][$table], $db, $sqliteDbPath);
+	$updateMessage = $langs->trans($module->dictionaries['tablib'][$table]) . ' ' . $langs->trans('Updated');
+	dol_htmloutput_mesg($updateMessage);
 }
 
 
@@ -120,11 +127,6 @@ if ($action == 'updateTable') {
  */
 
 $token = newToken();
-
-$help_url = '';
-$page_name = "MxSatCatalogsSetup";
-
-llxHeader('', $langs->trans($page_name), $help_url, '', 0, 0, '', '', '', 'mod-mxsatcatalogs page-admin');
 
 // Subheader
 $linkback = '<a href="' . ($backtopage ? $backtopage : DOL_URL_ROOT . '/admin/modules.php?restore_lastsearch_values=1') . '">' . $langs->trans("BackToModuleList") . '</a>';

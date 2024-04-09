@@ -1,5 +1,5 @@
 <?php
-dol_include_once("core/lib/files.lib.php");
+dol_include_once("core/lib/functions.lib.php");
 
 /**
  * Download the catalog database file, extract its contents, and save it to disk.
