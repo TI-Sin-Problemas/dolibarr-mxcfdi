@@ -1,8 +1,9 @@
-# MXSATCATALOGS FOR [DOLIBARR ERP CRM](https://www.dolibarr.org)
+# Mexico SAT Catalogs for [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
 ## Features
 
-Description of the module...
+This module creates a collection of dictionaries with data of the Mexican Service Tax Administration (SAT).
+The purpose of this module is to serve as dependency for Dolibarr integrations with Mexican compliance services.
 
 <!--
 ![Screenshot mxsatcatalogs](img/screenshot_mxsatcatalogs.png?raw=true "MxSatCatalogs"){imgmd}
@@ -89,7 +90,7 @@ From your browser:
 
 ### Main code
 
-GPLv3 or (at your option) any later version. See file COPYING for more information.
+GPLv3. See file COPYING for more information.
 
 ### Documentation
 
