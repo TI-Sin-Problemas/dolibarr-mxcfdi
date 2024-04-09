@@ -2,8 +2,14 @@
 
 ## Features
 
-This module creates a collection of dictionaries with data of the Mexican Service Tax Administration (SAT).
+This module creates a collection of dictionaries with data of the Mexican Service Tax Administration (SAT) catalogs.
 The purpose of this module is to serve as dependency for Dolibarr integrations with Mexican compliance services.
+
+Currently the dictionaries added by this module are:
+- Formas de pago
+- Métodos de pago
+- Productos y servicios
+- Unidades de medida
 
 <!--
 ![Screenshot mxsatcatalogs](img/screenshot_mxsatcatalogs.png?raw=true "MxSatCatalogs"){imgmd}
