@@ -25,34 +25,16 @@ ModuleMyModuleDesc = Módulo para añadir los catálogos del SAT como diccionari
 #
 # Admin page
 #
-MyModuleSetup = MyModule setup
-Settings = Settings
-MyModuleSetupPage = MyModule setup page
-MYMODULE_MYPARAM1 = My param 1
-MYMODULE_MYPARAM1Tooltip = My param 1 tooltip
-MYMODULE_MYPARAM2=My param 2
-MYMODULE_MYPARAM2Tooltip=My param 2 tooltip
+MxSatCatalogsSetup = Configuración de Catálogos del SAT
+MxSatCatalogsSetupPage = Página de configuración de Catálogos del SAT
 
 
 #
 # About page
 #
 About = About
-MyModuleAbout = About MyModule
-MyModuleAboutPage = MyModule about page
-
-#
-# Sample page
-#
-MyModuleArea = Home MyModule
-MyPageName = My page name
-
-#
-# Sample widget
-#
-MyWidget = My widget
-MyWidgetDescription = My widget description
-
+MxSatCatalogsAbout = Acerca de Catálogos del SAT
+MxSatCatalogsAboutPage = Página de información de Catálogos del SAT
 
 #
 # Dictionaries

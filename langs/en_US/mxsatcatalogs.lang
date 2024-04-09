@@ -25,33 +25,16 @@ ModuleMxSatCatalogsDesc = Module to add Mexican SAT Catalogs as dictionaries
 #
 # Admin page
 #
-MxSatCatalogsSetup = MxSatCatalogs setup
-Settings = Settings
-MxSatCatalogsSetupPage = MxSatCatalogs setup page
-MXSATCATALOGS_MYPARAM1 = My param 1
-MXSATCATALOGS_MYPARAM1Tooltip = My param 1 tooltip
-MXSATCATALOGS_MYPARAM2=My param 2
-MXSATCATALOGS_MYPARAM2Tooltip=My param 2 tooltip
+MxSatCatalogsSetup = Mexican SAT Catalogs setup
+MxSatCatalogsSetupPage = Mexican SAT Catalogs setup page
 
 
 #
 # About page
 #
 About = About
-MxSatCatalogsAbout = About MxSatCatalogs
-MxSatCatalogsAboutPage = MxSatCatalogs about page
-
-#
-# Sample page
-#
-MxSatCatalogsArea = Home MxSatCatalogs
-MyPageName = My page name
-
-#
-# Sample widget
-#
-MyWidget = My widget
-MyWidgetDescription = My widget description
+MxSatCatalogsAbout = About Mexican SAT Catalogs
+MxSatCatalogsAboutPage = Mexican SAT Catalogs about page
 
 #
 # Dictionaries
