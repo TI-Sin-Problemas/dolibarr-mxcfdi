@@ -11,6 +11,8 @@ Currently the dictionaries added by this module are:
 - Productos y servicios
 - Unidades de medida
 
+If you think more catalogs need to be added, please create a new [issue](https://github.com/TI-Sin-Problemas/dolibarr-mxsatcatalogs/issues). PRs are also welcome.
+
 <!--
 ![Screenshot mxsatcatalogs](img/screenshot_mxsatcatalogs.png?raw=true "MxSatCatalogs"){imgmd}
 -->
