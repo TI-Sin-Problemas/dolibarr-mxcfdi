@@ -13,9 +13,7 @@ Currently the dictionaries added by this module are:
 
 If you think more catalogs need to be added, please create a new [issue](https://github.com/TI-Sin-Problemas/dolibarr-mxsatcatalogs/issues). PRs are also welcome.
 
-<!--
-![Screenshot mxsatcatalogs](img/screenshot_mxsatcatalogs.png?raw=true "MxSatCatalogs"){imgmd}
--->
+![Screenshot mxsatcatalogs](img/about1.png?raw=true "MxSatCatalogs")
 
 Other external modules are available on [Dolistore.com](https://www.dolistore.com).
 
