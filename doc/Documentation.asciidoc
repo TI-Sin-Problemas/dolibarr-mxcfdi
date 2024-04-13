@@ -1,0 +1,64 @@
+= MXSATCATALOGS =
+:subtitle: MEXICO SAT CATALOGS DOCUMENTATION
+:source-highlighter: rouge
+:companyname: TI Sin Problemas
+:corpname: TI Sin Problemas
+:orgname: TI Sin Problemas
+:creator: Alfredo Altamirano
+:title: Documentation of module Mexico SAT Catalogs
+:subject: This document is the document of module Mexico SAT Catalogs.
+:keywords: Mexico SAT Catalogs
+:docdate: 2024-04-13
+:toc: manual
+:toc-placement: preamble
+
+
+== TOPIC OF DOCUMENT
+
+This is the documentation of module Mexico SAT Catalogs
+
+
+*Log of versions of document*
+
+[options="header",format="csv"]
+|=== 
+Author, Date, Version
+Alfredo Altamirano  alfredo.altamirano@tisinproblemas.com, 2024-04-13, Version 1.0
+|===
+
+
+[NOTE]
+==============
+This document was generated using Dolibarr ERP CRM process
+==============
+
+
+:toc: manual
+:toc-placement: preamble
+
+
+
+== INTRODUCTION
+
+// include::README.md[]
+__README__
+
+== DATA SPECIFICATIONS
+
+__DATA_SPECIFICATION__
+
+
+== MATRIX OF PERMISSIONS
+
+No permissions required
+
+
+== OTHER
+
+__API_DOC__
+
+
+== CHANGELOG
+
+// include::ChangeLog.md[]
+__CHANGELOG__

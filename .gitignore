@@ -11,6 +11,7 @@
 # PHPdocumentor generated files
 /build/phpdoc
 /doc/code/phpdoc
+/doc/temp
 # Sphinx generated files
 /doc/user/build
 /.settings/
