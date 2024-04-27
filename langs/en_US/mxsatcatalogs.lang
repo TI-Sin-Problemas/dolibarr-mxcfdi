@@ -48,3 +48,15 @@ MxSatCatalogsProductsServicesCodeTooltipHelp = SAT Catalog code
 MxSatCatalogsUnitsOfMeasure = Mexican SAT Catalog of Units of Measure
 MxSatCatalogsUnitsOfMeasureCodeTooltipHelp = SAT Catalog code
 Symbol = Symbol
+
+#
+# Extra Fields
+#
+PaymentMethod = SAT's Payment Method
+PaymentMethodTooltip = Payment Method from the Mexican SAT Catalog. Enable or disable available options through Setup->Dictionaries
+PaymentOption = SAT's Payment Option
+PaymentOptionTooltip = Payment Option from the Mexican SAT Catalog. Enable or disable available options through Setup->Dictionaries
+ProductService = SAT's Product or Service
+ProductServiceTooltip = Product or Service from the Mexican SAT Catalog. Enable or disable available options through Setup->Dictionaries
+UnitOfMeasure = SAT's Unit of Measure
+UnitOfMeasureTooltip = Unit of Measure from the Mexican SAT Catalog. Enable or disable available options through Setup->Dictionaries

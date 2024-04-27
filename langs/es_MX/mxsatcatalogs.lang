@@ -41,10 +41,22 @@ MxSatCatalogsAboutPage = Página de información de Catálogos del SAT
 #
 MxSatCatalogsPaymentMethods = Catálogo del SAT de Formas de Pago
 MxSatCatalogsPaymentMethodsCodeTooltipHelp = Código del catálogo del SAT
-MxSatCatalogsPaymentOptions = Catálogo del SAT de Métodos de pago
+MxSatCatalogsPaymentOptions = Catálogo del SAT de Métodos de Pago
 MxSatCatalogsPaymentOptionsCodeTooltipHelp = Código del catálogo del SAT
 MxSatCatalogsProductsServices = Catálogo del SAT de Productos y Servicios
 MxSatCatalogsProductsServicesCodeTooltipHelp = Código del catálogo del SAT
 MxSatCatalogsUnitsOfMeasure = Catálogo del SAT de Unidades de Medida
 MxSatCatalogsUnitsOfMeasureCodeTooltipHelp = Código del catálogo del SAT
 Symbol = Símbolo
+
+#
+# Extra Fields
+#
+PaymentMethod = Forma de pago SAT
+PaymentMethodTooltip = Forma de Pago del catálogo del SAT. Activa o desactiva opciones disponibles en Configuración->Diccionarios
+PaymentOption = Método de pago SAT
+PaymentOptionTooltip = Método de Pago del catálogo del SAT. Activa o desactiva opciones disponibles en Configuración->Diccionarios
+ProductService = Producto o Servicio SAT
+ProductServiceTooltip = Producto o Servicio del catálogo del SAT. Activa o desactiva opciones disponibles en Configuración->Diccionarios
+UnitOfMeasure = Unidad de Medida SAT
+UnitOfMeasureTooltip = Unidad de Medida del catálogo del SAT. Activa o desactiva opciones disponibles en Configuración->Diccionarios

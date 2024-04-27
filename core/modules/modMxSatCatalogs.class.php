@@ -495,13 +495,14 @@ class modMxSatCatalogs extends DolibarrModules
 		}
 
 		// Create extrafields during init
-		//include_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';
-		//$extrafields = new ExtraFields($this->db);
-		//$result1=$extrafields->addExtraField('mxsatcatalogs_myattr1', "New Attr 1 label", 'boolean', 1,  3, 'thirdparty',   0, 0, '', '', 1, '', 0, 0, '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")');
-		//$result2=$extrafields->addExtraField('mxsatcatalogs_myattr2', "New Attr 2 label", 'varchar', 1, 10, 'project',      0, 0, '', '', 1, '', 0, 0, '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")');
-		//$result3=$extrafields->addExtraField('mxsatcatalogs_myattr3', "New Attr 3 label", 'varchar', 1, 10, 'bank_account', 0, 0, '', '', 1, '', 0, 0, '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")');
-		//$result4=$extrafields->addExtraField('mxsatcatalogs_myattr4', "New Attr 4 label", 'select',  1,  3, 'thirdparty',   0, 1, '', array('options'=>array('code1'=>'Val1','code2'=>'Val2','code3'=>'Val3')), 1,'', 0, 0, '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")');
-		//$result5=$extrafields->addExtraField('mxsatcatalogs_myattr5', "New Attr 5 label", 'text',    1, 10, 'user',         0, 0, '', '', 1, '', 0, 0, '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")');
+		include_once DOL_DOCUMENT_ROOT . '/core/class/extrafields.class.php';
+		$extrafields = new ExtraFields($this->db);
+		$paymentMethodExtraField = $extrafields->addExtraField('mxsatcatalogs_payment_method', 'PaymentMethod', 'sellist', $this->numero, 2, 'facture', 0, 1, '', array('options' => array('c_mxsatcatalogs_payment_methods:label:code::active=1' => null)), 0, '', -1, 'PaymentMethodTooltip', '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")', 0, 1);
+		$paymentOptionExtraField = $extrafields->addExtraField('mxsatcatalogs_payment_option', 'PaymentOption', 'sellist', $this->numero, 3, 'facture', 0, 1, '', array('options' => array('c_mxsatcatalogs_payment_options:label:code::active=1' => null)), 0, '', -1, 'PaymentOptionTooltip', '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")', 0, 1);
+		$productServiceExtraField = $extrafields->addExtraField('mxsatcatalogs_product_service', 'ProductService', 'sellist', $this->numero, 8, 'product', 0, 1, '', array('options' => array('c_mxsatcatalogs_products_services:label:code::active=1' => null)), 0, '', -1, 'ProductServiceTooltip', '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")', 0, 1);
+		$productServiceLineExtraField = $extrafields->addExtraField('mxsatcatalogs_product_service', 'ProductService', 'sellist', $this->numero, 8, 'facturedet', 0, 1, '', array('options' => array('c_mxsatcatalogs_products_services:label:code::active=1' => null)), 0, '', -1, 'ProductServiceTooltip', '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")', 0, 1);
+		$unitOfMeasureExtraField = $extrafields->addExtraField('mxsatcatalogs_unit_of_measure', 'UnitOfMeasure', 'sellist', $this->numero, 3, 'product', 0, 1, '', array('options' => array('c_mxsatcatalogs_units_of_measure:label:code::active=1' => null)), 0, '', -1, 'UnitOfMeasureTooltip', '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")', 0, 1);
+		$unitOfMeasureLineExtraField = $extrafields->addExtraField('mxsatcatalogs_unit_of_measure', 'UnitOfMeasure', 'sellist', $this->numero, 3, 'facturedet', 0, 1, '', array('options' => array('c_mxsatcatalogs_units_of_measure:label:code::active=1' => null)), 0, '', -1, 'UnitOfMeasureTooltip', '', '', 'mxsatcatalogs@mxsatcatalogs', 'isModEnabled("mxsatcatalogs")', 0, 1);
 
 		// Permissions
 		// $this->remove($options);
