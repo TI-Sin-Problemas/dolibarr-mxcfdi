@@ -2,16 +2,27 @@
 
 ## Features
 
-This module creates a collection of dictionaries with data of the Mexican Service Tax Administration (SAT) catalogs.
+This module creates a collection of dictionaries and extra fields with data of the Mexican Service Tax Administration (SAT) catalogs.
 The purpose of this module is to serve as dependency for Dolibarr integrations with Mexican compliance services.
 
-Currently the dictionaries added by this module are:
-- Formas de pago
-- Métodos de pago
-- Productos y servicios
-- Unidades de medida
+### Dictionaries
+- Payment methods (Formas de pago)
+- Payment options (Métodos de pago)
+- Products and services (Productos y servicios)
+- Units of measure (Unidades de medida)
 
-If you think more catalogs need to be added, please create a new [issue](https://github.com/TI-Sin-Problemas/dolibarr-mxsatcatalogs/issues). PRs are also welcome.
+### Extra fields
+|        Extra field        |         Object        |            Data source dictionary             |
+|---------------------------|-----------------------|-----------------------------------------------|
+|    SAT's payment method   |    Customer Invoice   |        Payment methods (Formas de pago)       |
+|    SAT's payment option   |    Customer Invoice   |       Payment options (Métodos de pago)       |
+|  SAT's product or service |        Product        | Products and services (Productos y servicios) |
+|   SAT's unit of measure   |        Product        |     Units of measure (Unidades de medida)     |
+|  SAT's product or service | Customer Invoice Line | Products and services (Productos y servicios) |
+|   SAT's unit of measure   | Customer Invoice Line |     Units of measure (Unidades de medida)     |
+
+
+If you think more catalogs or extra fields need to be added, please create a new [issue](https://github.com/TI-Sin-Problemas/dolibarr-mxsatcatalogs/issues). PRs are also welcome.
 
 ![Screenshot mxsatcatalogs](img/about1.png?raw=true "MxSatCatalogs")
 
