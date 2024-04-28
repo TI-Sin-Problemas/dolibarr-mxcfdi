@@ -494,24 +494,49 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_features">2.1. Features</h3>
 <div class="paragraph">
-<p>This module creates a collection of dictionaries with data of the Mexican Service Tax Administration (SAT) catalogs.
+<p>This module creates a collection of dictionaries and extra fields with data of the Mexican Service Tax Administration (SAT) catalogs.
 The purpose of this module is to serve as dependency for Dolibarr integrations with Mexican compliance services.</p>
 </div>
+<div class="sect3">
+<h4 id="_dictionaries">2.1.1. Dictionaries</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Payment methods (Formas de pago)</p>
+</li>
+<li>
+<p>Payment options (Métodos de pago)</p>
+</li>
+<li>
+<p>Products and services (Productos y servicios)</p>
+</li>
+<li>
+<p>Units of measure (Unidades de medida)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_extra_fields">2.1.2. Extra fields</h4>
 <div class="paragraph">
-<p>Currently the dictionaries added by this module are:
-- Formas de pago
-- Métodos de pago
-- Productos y servicios
-- Unidades de medida</p>
+<p>|        Extra field        |         Object        |            Data source dictionary             |
+|---------------------------|-----------------------|-----------------------------------------------|
+|    SAT&#8217;s payment method   |    Customer Invoice   |        Payment methods (Formas de pago)       |
+|    SAT&#8217;s payment option   |    Customer Invoice   |       Payment options (Métodos de pago)       |
+|  SAT&#8217;s product or service |        Product        | Products and services (Productos y servicios) |
+|   SAT&#8217;s unit of measure   |        Product        |     Units of measure (Unidades de medida)     |
+|  SAT&#8217;s product or service | Customer Invoice Line | Products and services (Productos y servicios) |
+|   SAT&#8217;s unit of measure   | Customer Invoice Line |     Units of measure (Unidades de medida)     |</p>
 </div>
 <div class="paragraph">
-<p>If you think more catalogs need to be added, please create a new [issue](<a href="https://github.com/TI-Sin-Problemas/dolibarr-mxsatcatalogs/issues" class="bare">https://github.com/TI-Sin-Problemas/dolibarr-mxsatcatalogs/issues</a>). PRs are also welcome.</p>
+<p>If you think more catalogs or extra fields need to be added, please create a new [issue](<a href="https://github.com/TI-Sin-Problemas/dolibarr-mxsatcatalogs/issues" class="bare">https://github.com/TI-Sin-Problemas/dolibarr-mxsatcatalogs/issues</a>). PRs are also welcome.</p>
 </div>
 <div class="paragraph">
 <p>![Screenshot mxsatcatalogs](img/about1.png?raw=true "MxSatCatalogs")</p>
 </div>
 <div class="paragraph">
 <p>Other external modules are available on [Dolistore.com](<a href="https://www.dolistore.com" class="bare">https://www.dolistore.com</a>).</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -627,7 +652,7 @@ go into menu <code><code>Home - Setup - Modules - Deploy external module</code><
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-04-13 23:13:55 UTC
+Last updated 2024-04-28 00:24:25 UTC
 </div>
 </div>
 </body>
